@@ -63,7 +63,8 @@ class LeadPartnerPairController extends Controller
     public function createLeadPartnerPair($id){
 
         $currentLead = Lead::find($id);
-        $clearSearches = LeadPartnerPair::where("lead_id", $currentLead->lead_id)->get();
+        $matchThese = ['lead_id' => $currentLead->lead_id, 'status' => 1];
+        $clearSearches = LeadPartnerPair::where($matchThese)->get();
 
         foreach ($clearSearches as $search) {
             $search->delete();
@@ -88,7 +89,7 @@ class LeadPartnerPairController extends Controller
                                                     ->where('tags', 'LIKE', '%'. $trimmedTag .'%')
                                                     ->get());
                 foreach($getMathchedPartners as $finalMatchedPartner){
-		    $matchThese = ['partner_id' => $finalMatchedPartner->partner_id, 'lead_id' => $currentLead->lead_id];
+		            $matchThese = ['partner_id' => $finalMatchedPartner->partner_id, 'lead_id' => $currentLead->lead_id];
                     $partnerData = LeadPartnerPair::where($matchThese)->first();
                     if(is_null($partnerData)){
                         $newPair = LeadPartnerPair::create([
@@ -155,7 +156,7 @@ class LeadPartnerPairController extends Controller
     public function sendEmails(Request $request){
 
         $emailData = json_decode($request['emailData']);
-        
+
         for ($index=0; $index < count($emailData); $index++) {
             $partnerName = $emailData[$index]->name;
             $partnerEmail = $emailData[$index]->email;

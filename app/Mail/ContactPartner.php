@@ -30,7 +30,7 @@ class ContactPartner extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->subject('Partner Communication')
+        return $this->subject($this->details['subject'])
                     ->from(env('MAIL_USERNAME'), env('MAIL_FROM_NAME'))
                     ->cc(env('MAIL_CC_EMAIL'), env('MAIL_CC_NAME'))
                     ->replyTo(env('MAIL_REPLAY_TO_EMAIL'), env('MAIL_REPLAY_TO_NAME '))

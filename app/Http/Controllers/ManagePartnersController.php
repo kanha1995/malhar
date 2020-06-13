@@ -182,7 +182,8 @@ class ManagePartnersController extends Controller
                         "partnerLocation" => $partnerLocation,
                         "partnerBody" => $partnerBody,
                         "partnerService" => $partnerService,
-                        "partnerPercent" => $partnerPercent
+                        "partnerPercent" => $partnerPercent,
+                        "subject" => 'Looking for '. $partnerService .' from '. $partnerLocation
                     ];
             Mail::to($partnerEmail, $partnerName)->queue(new ContactPartner($details));
 

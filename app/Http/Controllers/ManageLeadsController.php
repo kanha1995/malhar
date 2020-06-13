@@ -71,6 +71,7 @@ class ManageLeadsController extends Controller
             'c2c'                       => ['boolean'],
             'tags'                      => ['string', 'nullable'],
             'description'               => ['string', 'nullable'],
+            'requirement'               => ['string', 'nullable'],
         ]);
 
         if($validator->fails()){
@@ -116,7 +117,8 @@ class ManageLeadsController extends Controller
         $currentPartner->initial_requirement = $input['initial_requirement'];
         $currentPartner->note_to_partner = $input['note_to_partner'];
         $currentPartner->partner_search_keywords = $input['partner_search_keywords'];
-
+        $currentPartner->partner_search_keywords = $input['partner_search_keywords'];
+        $currentPartner->requirement = $input['requirement'];
         $currentPartner->tags = $input['tags'];
         $currentPartner->save();
         return Redirect::back();
@@ -173,6 +175,7 @@ class ManageLeadsController extends Controller
             'c2c'                       => ['boolean'],
             'tags'                      => ['string', 'nullable'],
             'description'               => ['string', 'nullable'],
+            'requirement'               => ['string', 'nullable'],
         ]);
 
         if($validator->fails()){
@@ -204,7 +207,8 @@ class ManageLeadsController extends Controller
             'partner_search_keywords' => $input['partner_search_keywords'],
             'c2c'       => $input['c2c'],
             'tags'      => $input['tags'],
-            'description'      => $input['description']
+            'description'      => $input['description'],
+            'requirement' => $input['requirement']
         ]);
 
         //Send Email
@@ -214,18 +218,5 @@ class ManageLeadsController extends Controller
     public function emailPartner(Request $request){
 
         return view('admin.emailPartner');
-        // $input = $request->all();
-        // $validator = Validator::make($input, [
-        //     'name'          => ['required', 'string', 'max:255', 'exists:users,name'],
-        //     'email'         => ['required', 'string', 'email', 'max:255', 'exists:users,email'],
-        //     'subject'       => ['required', 'string'],
-        //     'body'          => ['required', 'string']
-        // ]);
-
-        // if($validator->fails()){
-        //     $errorMessage = $validator->errors()->all();
-        //     return Redirect::back()->withErrors($errorMessage);
-        // }
-        // return redirect()->route('managePartners');
     }
 }

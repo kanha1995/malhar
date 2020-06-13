@@ -61,10 +61,10 @@ div {
 
       <p>&nbsp;</p>
       <p style="line-height: 15px;">
-		<p style="font-size: 15px;">Thanks,<br>Abhishek</p>
+		Thanks,<br>Abhishek<br>
       </p>
     </div>
-    
+
 </div>
 </body>
 </html>

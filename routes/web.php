@@ -11,9 +11,6 @@
 |
 */
 
-use App\Mail\LeadSendEmail;
-use Illuminate\Support\Facades\Mail;
-
 Route::get('/logoutAction', function () {
     auth()->logout();
     return redirect('/');
@@ -88,25 +85,4 @@ Route::group(['middleware' => ['superAdmin']], function() {
 
     Route::post('createProject', 'ProjectsController@createProject')->name('createProject');
     Route::get('manageProjects', 'ProjectsController@index')->name('manageProjects');
-
-
-
-
 });
-
-Route::get('/sendEmailss', function () {
-    $details = ["partnerName" => 'DD',
-                        "partnerEmail" => 'debashishdash03@gmail.com',
-                        "partnerId" => '123456',
-                        'leadId' => '123546',
-                        'leadRequirement' => '$leadDetails->requirement',
-                        'leadAddress' => '$leadCountry',
-                        'partnerPercent' => '$partnerPercent',
-                        'initialRequirement' => '$leadDetails->initial_requirement',
-                        "subject" => 'MALHAR INFOWAY: New requirement'
-                    ];
-
-            Mail::to('debashishdash03@gmail.com', 'DEBASHISH DASH')->queue(new LeadSendEmail($details));
-            dd('Sent');
-
-})->name('sendEmailss');

@@ -96,12 +96,12 @@ $(document).ready(function(){
 		$(this).attr("disabled", "disabled");
 		var index = $("table tbody tr:last-child").index();
         var row = '<tr>' +
-            '<td><input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" required></td>' +
-            '<td><input type="text" class="form-control" name="email" id="email" placeholder="Enter Email Address" email required></td>' +
-			'<td><input type="text" class="form-control" name="location" id="location" placeholder="Enter Location" required email></td>' +
-            '<td><input type="text" class="form-control" name="body" id="afterInfo" placeholder="AfterIntro Text" required></td>' +
-            '<td><input type="text" class="form-control" name="services" id="services" placeholder="Services" required></td>' +
-            '<td><input type="text" class="form-control" name="percentage" id="percent" placeholder="Percentage" required number></td>' +
+            '<td><input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" required data-name="name"></td>' +
+            '<td><input type="text" class="form-control" name="email" id="email" placeholder="Enter Email Address" email required data-name="email"></td>' +
+			'<td><input type="text" class="form-control" name="location" id="location" placeholder="Enter Location" required data-name="location"></td>' +
+            '<td><input type="text" class="form-control" name="body" id="afterInfo" placeholder="AfterIntro Text" data-name="body"></td>' +
+            '<td><input type="text" class="form-control" name="services" id="services" placeholder="Services" required data-name="service"></td>' +
+            '<td><input type="text" class="form-control" name="percentage" id="percent" placeholder="Percentage" required number data-name="percent"></td>' +
             '<td>' + actions + '</td>' +
         '</tr>';
     	$("table").append(row);
@@ -113,7 +113,7 @@ $(document).ready(function(){
 		var empty = false;
 		var input = $(this).parents("tr").find('input[type="text"]');
         input.each(function(){
-			if(!$(this).val()){
+			if(!$(this).val() && ($(this).attr('name') != 'body')){
 				$(this).addClass("error");
 				empty = true;
 			} else{
@@ -165,9 +165,8 @@ function sendEmailAction(){
             text: 'Please add partner(s) to send email',
             icon: 'error',
             confirmButtonText: 'Ok'
-        }).then((result) => {
-            location.reload();
         });
+        return;
     }
     let finalBody = {"contacts": emailListArray}
     const form = document.createElement('form');

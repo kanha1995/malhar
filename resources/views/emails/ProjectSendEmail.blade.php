@@ -30,12 +30,6 @@ div {
 <body >
 
 <div style="width:100%; height: auto; display: block;background-color: #f1f1f1;" >
-<div style="line-height: 20px;">
-        <p style="font-size: 20px">
-        <b style="font-family: 'Varela Round', sans-serif">Malhar Infoway</b>
-        <span style="font-size: 12px; line-height: 16px; display:block">Web Designing & Development Services India | Cheapest IT Outsourcing India</span></p>
-    </div>
-
 <div class="card" style="background-color: #fff;">
       <p>Dear {{$details['leadName']}},</p>
       <p>Greetings.</p>
@@ -53,12 +47,12 @@ div {
 
       <p>&nbsp;</p>
       <p style="line-height: 15px;">
-        <p style="font-size: 15px;">Thanks,<br>Abhishek</p><br>
+        Thanks,<br>Abhishek<br>
         CEO – Malhar Infoway, India <br>
         <a href="http://malharinfoway.com/">www.malharinfoway.com</a>
       </p>
     </div>
-    
+
 </div>
 </body>
 </html>

@@ -65,7 +65,7 @@ div {
 
       <p>&nbsp;</p>
      	<p style="line-height: 15px;">
-        <P style="font-size: 15px;">Thanks,<br>Abhishek</P><br>
+        Thanks,<br>Abhishek<br>
         CEO – Malhar Infoway, India <br>
         <a href="http://malharinfoway.com">www.malharinfoway.com</a>
       </p>

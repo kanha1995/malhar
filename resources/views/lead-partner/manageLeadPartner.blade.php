@@ -48,7 +48,7 @@
                   <th>Partner Email</th>
 
                   <th>Status</th>
-                  <th style="width: 15%">Action</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
